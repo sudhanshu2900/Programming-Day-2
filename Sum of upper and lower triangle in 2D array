@@ -1,0 +1,42 @@
+PROBLEM- I/P:mat[][] = {{6, 5, 4},
+                        {1, 2, 5}
+                        {7, 9, 7}}
+             
+Explanation:
+
+The given matrix is
+6 5 4
+1 2 5
+7 9 7
+The elements of upper triangle are
+6 5 4
+  2 5
+    7
+Sum of these elements is 6+5+4+2+5+7=29
+The elements of lower triangle are
+6
+1 2
+7 9 7
+Sum of these elements is 6+1+2+7+9+7= 32.
+
+
+SOLUTION-
+
+vector<int> sumTriangles(const vector<vector<int> >& matrix, int n)
+    {
+        
+        int Lsum=0, Usum=0;
+        for(int i=0; i<matrix.size(); i++){
+            for(int j=0; j<=i; j++){
+                Lsum+=matrix[i][j];
+            }
+        }
+        
+        for(int i=0; i<matrix.size(); i++){
+            for(int j=i; j<matrix[i].size(); j++){
+                Usum+=matrix[i][j];
+            }
+        }
+        cout<<Usum<<" ";
+        cout<<Lsum<<" ";
+    }
