@@ -1,0 +1,18 @@
+PROBLEM- I/P:    1 
+                / \
+               2   3
+        
+        O/P: 2
+
+SOLUTION:
+
+int height(struct Node* node){
+       
+        Node *root = node;
+        if(root == NULL){
+            return 0;
+        }
+        else{
+            return (1+max(height(root->left), height(root->right)));
+        }
+    }
