@@ -1,0 +1,26 @@
+PROBLEM- I/P: 5 -> 9 -> 6 -> 3 -> 4 -> 10
+              N=3
+         O/P: 17 (3+4+10) last 3 nodes
+         
+SOLUTION:
+
+int sumOfLastN_Nodes(struct Node* head, int n)
+{
+      int sum=0;
+      int cnt=1;
+      Node *temp= head, *temp1=head;
+      while(temp!=NULL){
+          cnt++;
+          temp=temp->next;
+      }
+      int s = cnt-n+1;                      //s=6-3+1=4
+      for(int i=1; i<s-1; i++){
+          temp1=temp1->next;
+      }
+      while(temp1!=NULL){
+          sum+=(temp1->data);
+          temp1=temp1->next;
+      }
+      return sum;
+}
+         
