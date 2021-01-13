@@ -1,0 +1,23 @@
+PROBLEM- I/P: 1 -> 2 -> 3 -> 4 -> 1
+         O/P: 1 (true)
+         
+         I/P: 1 -> 2 -> 3 -> 4 -> NULL
+         O/P: 0 (false)
+         
+SOLUTION:
+
+bool isCircular(Node *head)
+{
+   
+    Node *curr=head;
+    if(curr==NULL)return true;                  //if list is empty then it is also circular
+    if(curr->next == curr)return true;          //if single node have circular link
+    
+    while(curr!=NULL){
+        if(curr->next == head){
+            return true;
+        }
+        curr=curr->next;
+    }
+    return false;
+}
